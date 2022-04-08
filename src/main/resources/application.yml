@@ -1,0 +1,46 @@
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://101.132.99.44/traffic?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: a1598753aA
+    hikari:
+      max-lifetime: 500000
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+  cache:
+    type: redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: 1000
+        max-idle: 30
+        min-idle: 10
+    lettuce:
+      shutdown-timeout: 0
+    timeout: 1200
+identify:
+  url: https://idcert.market.alicloudapi.com/idcard?idCard=%s&name=%s
+  appKey: 204050747
+  appSecret: KJ5SR6FS1RhxZFIEvU0RPTjo67bH2eZO
+  appCode: 34da270d10b84bd69335c2ce34cb130c
+
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tb_
+  type-enums-package: trafficsystem.enums
+  configuration:
+      default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+
